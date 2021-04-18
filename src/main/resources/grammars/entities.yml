@@ -1,0 +1,33 @@
+# NE rules
+
+# This uses the PERSON labels populated by an NER system
+- name: "ner-person"
+  label: Person
+  priority: ${rulepriority}
+  type: token
+  pattern: |
+   [entity="PERSON"]+
+- name: "ner-location"
+  label: Location
+  priority: ${rulepriority}
+  type: token
+  pattern: |
+    [entity="LOCATION"]+
+- name: "ner-org"
+  label: Organization
+  priority: ${rulepriority}
+  type: token
+  pattern: |
+    [entity="ORGANIZATION"]+
+- name: "ner-date"
+  label: Date
+  priority: ${rulepriority}
+  type: token
+  pattern: |
+    [entity="DATE"]+
+- name: "ner-city"
+  label: City
+  priority: ${rulepriority}
+  type: token
+  pattern: |
+    [entity="CITY"]+
