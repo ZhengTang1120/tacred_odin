@@ -1,0 +1,27 @@
+- name: ${label}_1
+  label: ${label}
+  priority: ${rulepriority}
+  sample: <>e1:[e=PER]John t:[w]died in <>e2:[e=LOC]London in 1997.
+  pattern: |
+    trigger = [word=died]
+    subject: SUBJ_Person = nsubj
+    object: ${object_type} = nmod
+
+- name: ${label}_1_extend
+  label: ${label}
+  priority: ${rulepriority}
+  sample: <>e1:[e=PER]John t:[w]died in <>e2:[e=LOC]London, <>country:[e=LOC]England in 1997.
+  pattern: |
+    trigger = [word=died]
+    subject: SUBJ_Person = nsubj
+    object: ${object_type} = nmod appos
+
+- name: ${label}_3
+  label: ${label}
+  priority: ${rulepriority}
+  sample: <>e2:[e=LOC]England pos:[t=POS]’s largest university is <>e1:[e=ORG]Oxford.
+  pattern: |
+    trigger = [word=died]
+    subject: SUBJ_Person = nsubj [word=/-LRB-/] compound
+    object: ${object_type} = nmod [word=/-RRB-/] compound
+

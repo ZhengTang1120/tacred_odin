@@ -1,10 +1,65 @@
 taxonomy:
-  - Person
-  - Organization
-  - Date
-  - Location
-  - City
-  - Event
+  - SUBJ_Person
+  - SUBJ_Organization
+  - OBJ_Person
+  - OBJ_Organization
+  - OBJ_Date
+  - OBJ_Number
+  - OBJ_Title
+  - OBJ_Country
+  - OBJ_Location
+  - OBJ_City
+  - OBJ_Misc
+  - OBJ_State_or_province
+  - OBJ_Duration
+  - OBJ_Nationality
+  - OBJ_Cause_of_death
+  - OBJ_Criminal_charge
+  - OBJ_Religion
+  - OBJ_Url
+  - OBJ_Ideology
+  - Relation:
+      - per:title
+      - org:top_members/employees
+      - per:employee_of
+      - org:alternate_names
+      - org:country_of_headquarters
+      - per:countries_of_residence
+      - org:city_of_headquarters
+      - per:cities_of_residence
+      - per:age
+      - per:stateorprovinces_of_residence
+      - per:origin
+      - org:subsidiaries
+      - org:parents
+      - per:spouse
+      - org:stateorprovince_of_headquarters
+      - per:children
+      - per:other_family
+      - per:alternate_names
+      - org:members
+      - per:siblings
+      - per:schools_attended
+      - per:parents
+      - per:date_of_death
+      - org:member_of
+      - org:founded_by
+      - org:website
+      - per:cause_of_death
+      - org:political/religious_affiliation
+      - org:founded
+      - per:city_of_death
+      - org:shareholders
+      - org:number_of_employees/members
+      - per:date_of_birth
+      - per:city_of_birth
+      - per:charges
+      - per:stateorprovince_of_death
+      - per:religion
+      - per:stateorprovince_of_birth
+      - per:country_of_birth
+      - org:dissolved
+      - per:country_of_death
 
 rules:
   - import: grammars/entities.yml
@@ -14,6 +69,59 @@ rules:
       # used in the entities.yml rules
       rulepriority: "1"
 
-  - import: grammars/events.yml
+  - import: grammars/children.yml
+    vars:
+      trigger: "son|daughter|child"
+      rulepriority: "3+"
+
+  - import: grammars/foundedby.yml
     vars:
       rulepriority: "3+"
+
+  - import: grammars/headquarters_location.yml
+    vars:
+     label: org:country_of_headquarters
+     rulepriority: "3+"
+     object_type: OBJ_Country
+
+  - import: grammars/headquarters_location.yml
+    vars:
+     label: org:city_of_headquarters
+     rulepriority: "3+"
+     object_type: OBJ_City
+
+  - import: grammars/headquarters_location.yml
+    vars:
+     label: org:stateorprovince_of_headquarters
+     rulepriority: "3+"
+     object_type: OBJ_State_or_province
+
+  - import: grammars/spouse.yml
+    vars:
+     rulepriority: "3+"
+
+  - import: grammars/date_of_death.yml
+    vars:
+      rulepriority: "3+"
+
+  - import: grammars/place_of_death.yml
+    vars:
+      label: per:country_of_death
+      rulepriority: "3+"
+      object_type: OBJ_Country
+
+  - import: grammars/place_of_death.yml
+    vars:
+      label: per:city_of_death
+      rulepriority: "3+"
+      object_type: OBJ_City
+
+  - import: grammars/place_of_death.yml
+    vars:
+      label: per:stateorprovince_of_death
+      rulepriority: "3+"
+      object_type: OBJ_State_or_province
+
+
+
+

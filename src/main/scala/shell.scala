@@ -26,8 +26,8 @@ object shell extends App {
     val end_offests = new Array[Int](tokens.length)
     val edges = new ListBuffer[Edge[String]]
     val roots = new HashSet[Int]
-    val subj_type = d.get("subj_type").get.asInstanceOf[String]
-    val obj_type = d.get("obj_type").get.asInstanceOf[String]
+    val subj_type = "SUBJ_"+d.get("subj_type").get.asInstanceOf[String]
+    val obj_type = "OBJ_"+d.get("obj_type").get.asInstanceOf[String]
     val subj_start = d.get("subj_start").get.asInstanceOf[Double].toInt
     val subj_end = d.get("subj_end").get.asInstanceOf[Double].toInt
     val obj_start = d.get("obj_start").get.asInstanceOf[Double].toInt

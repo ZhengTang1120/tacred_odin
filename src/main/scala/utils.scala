@@ -6,18 +6,18 @@ package object utils {
   def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
     val mentionsBySentence = mentions groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
     for ((s, i) <- doc.sentences.zipWithIndex) {
-      println(s"sentence #$i")
-      println(s.getSentenceText)
-      println("Tokens: " + (s.words.indices, s.words, s.tags.get).zipped.mkString(", "))
-      printSyntacticDependencies(s)
-      println
+//      println(s"sentence #$i")
+//      println(s.getSentenceText)
+//      println("Tokens: " + (s.words.indices, s.words, s.tags.get).zipped.mkString(", "))
+//      printSyntacticDependencies(s)
+//      println
 
       val sortedMentions = mentionsBySentence(i).sortBy(_.label)
-      val (events, entities) = sortedMentions.partition(_ matches "Event")
+      val (events, entities) = sortedMentions.partition(_ matches "Relation")
       val (tbs, rels) = entities.partition(_.isInstanceOf[TextBoundMention])
       val sortedEntities = tbs ++ rels.sortBy(_.label)
-      println("entities:")
-      sortedEntities foreach displayMention
+//      println("entities:")
+//      sortedEntities foreach displayMention
 
       println
       println("events:")
