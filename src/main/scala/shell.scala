@@ -57,6 +57,7 @@ object shell extends App {
     sentence.tags = Some(pos)
     sentence.lemmas = Some(lemmas)
     sentence.setDependencies(depType = GraphMap.UNIVERSAL_BASIC, deps = dg)
+    sentence.setDependencies(depType = GraphMap.UNIVERSAL_ENHANCED, deps = dg)
     sentences += sentence
   }
   val doc = new Document(sentences.toArray)
