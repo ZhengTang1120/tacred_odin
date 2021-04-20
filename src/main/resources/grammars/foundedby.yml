@@ -23,5 +23,5 @@
   pattern: |
     trigger = [word=/founded/]
     subject: SUBJ_Organization = nsubjpass
-    object: OBJ_Person = nmod case [word=/by/] <case
+    object: OBJ_Person = nmod (?= case [word=by])
 
