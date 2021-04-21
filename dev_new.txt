@@ -1,0 +1,8 @@
+[info] welcome to sbt 1.4.3 (Oracle Corporation Java 1.8.0_281)
+[info] loading global plugins from /Users/zheng/.sbt/1.0/plugins
+[info] loading project definition from /Users/zheng/Documents/GitHub/tacred_odin/project
+[info] loading settings for project tacred_odin from build.sbt ...
+[info] set current project to TACRED_ODIN (in build file:/Users/zheng/Documents/GitHub/tacred_odin/)
+[info] compiling 2 Scala sources to /Users/zheng/Documents/GitHub/tacred_odin/target/scala-2.12/classes ...
+[info] done compiling
+[info] running shell 

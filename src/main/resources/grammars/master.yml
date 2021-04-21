@@ -125,6 +125,14 @@ rules:
       rulepriority: "3+"
       object_type: OBJ_State_or_province
 
+  - import: grammars/religion.yml
+    vars:
+      rulepriority: "3+"
+
+  - import: grammars/origin.yml
+    vars:
+      rulepriority: "3+"
+
 
 
 

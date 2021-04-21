@@ -1192,5 +1192,352 @@
       "xcomp",
       "punct"
     ]
+  },
+  {
+    "id": "19",
+    "docid": "unit_test",
+    "relation": "per:religion",
+    "token": [
+      "John",
+      "is",
+      "a",
+      "Methodist",
+      "Person",
+      "."
+    ],
+    "subj_start": 0,
+    "subj_end": 0,
+    "obj_start": 3,
+    "obj_end": 3,
+    "subj_type": "PERSON",
+    "obj_type": "RELIGION",
+    "stanford_pos": [
+      "NNP",
+      "VBZ",
+      "DT",
+      "NNP",
+      "NN",
+      "."
+    ],
+    "stanford_ner": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ],
+    "stanford_head": [
+      5,
+      5,
+      5,
+      5,
+      0,
+      5
+    ],
+    "stanford_deprel": [
+      "nsubj",
+      "cop",
+      "det",
+      "amod",
+      "ROOT",
+      "punct"
+    ]
+  },
+  {
+    "id": "20",
+    "docid": "unit_test",
+    "relation": "per:religion",
+    "token": [
+      "John",
+      "is",
+      "a",
+      "Jewis",
+      "."
+    ],
+    "subj_start": 0,
+    "subj_end": 0,
+    "obj_start": 3,
+    "obj_end": 3,
+    "subj_type": "PERSON",
+    "obj_type": "RELIGION",
+    "stanford_pos": [
+      "NNP",
+      "VBZ",
+      "DT",
+      "NNP",
+      "."
+    ],
+    "stanford_ner": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ],
+    "stanford_head": [
+      4,
+      4,
+      4,
+      0,
+      4
+    ],
+    "stanford_deprel": [
+      "nsubj",
+      "cop",
+      "det",
+      "ROOT",
+      "punct"
+    ]
+  },
+  {
+    "id": "21",
+    "docid": "unit_test",
+    "relation": "per:religion",
+    "token": [
+      "Jewish",
+      "John",
+      "is",
+      "walking",
+      "down",
+      "the",
+      "street",
+      "."
+    ],
+    "subj_start": 1,
+    "subj_end": 1,
+    "obj_start": 0,
+    "obj_end": 0,
+    "subj_type": "PERSON",
+    "obj_type": "RELIGION",
+    "stanford_pos": [
+      "JJ",
+      "NNP",
+      "VBZ",
+      "VBG",
+      "RP",
+      "DT",
+      "NN",
+      "."
+    ],
+    "stanford_ner": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ],
+    "stanford_head": [
+      2,
+      4,
+      4,
+      0,
+      4,
+      7,
+      4,
+      4
+    ],
+    "stanford_deprel": [
+      "amod",
+      "nsubj",
+      "aux",
+      "ROOT",
+      "compound:prt",
+      "det",
+      "dobj",
+      "punct"
+    ]
+  },
+  {
+    "id": "22",
+    "docid": "unit_test",
+    "relation": "per:origin",
+    "token": [
+      "John",
+      "is",
+      "a",
+      "Scottish",
+      "professor",
+      "."
+    ],
+    "subj_start": 0,
+    "subj_end": 0,
+    "obj_start": 3,
+    "obj_end": 3,
+    "subj_type": "PERSON",
+    "obj_type": "COUNTRY",
+    "stanford_pos": [
+      "NNP",
+      "VBZ",
+      "DT",
+      "JJ",
+      "NN",
+      "."
+    ],
+    "stanford_ner": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ],
+    "stanford_head": [
+      5,
+      5,
+      5,
+      5,
+      0,
+      5
+    ],
+    "stanford_deprel": [
+      "nsubj",
+      "cop",
+      "det",
+      "amod",
+      "ROOT",
+      "punct"
+    ]
+  },
+  {
+    "id": "23",
+    "docid": "unit_test",
+    "relation": "per:origin",
+    "token": [
+      "Mary",
+      ",",
+      "the",
+      "US",
+      "professor",
+      "."
+    ],
+    "subj_start": 0,
+    "subj_end": 0,
+    "obj_start": 3,
+    "obj_end": 3,
+    "subj_type": "PERSON",
+    "obj_type": "NATIONALITY",
+    "stanford_pos": [
+      "NNP",
+      ",",
+      "DT",
+      "NNP",
+      "NN",
+      "."
+    ],
+    "stanford_ner": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ],
+    "stanford_head": [
+      0,
+      1,
+      5,
+      5,
+      1,
+      1
+    ],
+    "stanford_deprel": [
+      "ROOT",
+      "punct",
+      "det",
+      "compound",
+      "appos",
+      "punct"
+    ]
+  },
+  {
+    "id": "24",
+    "docid": "unit_test",
+    "relation": "per:origin",
+    "token": [
+      "Scottish",
+      "Mary",
+      "is",
+      "high",
+      "."
+    ],
+    "subj_start": 1,
+    "subj_end": 1,
+    "obj_start": 0,
+    "obj_end": 0,
+    "subj_type": "PERSON",
+    "obj_type": "COUNTRY",
+    "stanford_pos": [
+      "JJ",
+      "NNP",
+      "VBZ",
+      "JJ",
+      "."
+    ],
+    "stanford_ner": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ],
+    "stanford_head": [
+      2,
+      4,
+      4,
+      0,
+      4
+    ],
+    "stanford_deprel": [
+      "amod",
+      "nsubj",
+      "cop",
+      "ROOT",
+      "punct"
+    ]
+  },
+  {
+    "id": "25",
+    "docid": "unit_test",
+    "relation": "per:origin",
+    "token": [
+      "John",
+      "is",
+      "French",
+      "."
+    ],
+    "subj_start": 0,
+    "subj_end": 0,
+    "obj_start": 2,
+    "obj_end": 2,
+    "subj_type": "PERSON",
+    "obj_type": "RELIGION",
+    "stanford_pos": [
+      "NNP",
+      "VBZ",
+      "JJ",
+      "."
+    ],
+    "stanford_ner": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ],
+    "stanford_head": [
+      3,
+      3,
+      0,
+      3
+    ],
+    "stanford_deprel": [
+      "nsubj",
+      "cop",
+      "ROOT",
+      "punct"
+    ]
   }
 ]
