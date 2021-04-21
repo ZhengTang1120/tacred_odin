@@ -80,18 +80,21 @@ rules:
 
   - import: grammars/headquarters_location.yml
     vars:
+     trigger: "company"
      label: org:country_of_headquarters
      rulepriority: "3+"
      object_type: OBJ_Country
 
   - import: grammars/headquarters_location.yml
     vars:
+     trigger: "company"
      label: org:city_of_headquarters
      rulepriority: "3+"
      object_type: OBJ_City
 
   - import: grammars/headquarters_location.yml
     vars:
+     trigger: "company"
      label: org:stateorprovince_of_headquarters
      rulepriority: "3+"
      object_type: OBJ_State_or_province

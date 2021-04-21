@@ -1,10 +1,10 @@
 - name: per:children_1
   label: per:children
   priority: ${rulepriority}
-  sample: <>e1:[e=PER]John ’s t:[w={triggers}]daughter , <>e2:[e=PER]Tim, likes swimming.
+  sample: <>e1:[e=PER]John $’s t:[w={triggers}]daughter , <>e2:[e=PER]Tim, likes swimming.
   pattern: |
     trigger = [lemma=/${ trigger }/]
-    subject: SUBJ_Person = nmod
+    subject: SUBJ_Person = nmod:poss (?= case [tag=POS])
     object: OBJ_Person = appos
 
 - name: per:children_2
@@ -16,12 +16,21 @@
     subject: SUBJ_Person = <nmod <dobj nsubj
     object: OBJ_Person = appos
 
-- name: per:children_3
+- name: per:children_3_1
   label: per:children
   priority: ${rulepriority}
   sample: <>e1:[e=PER]Mary was survived by her 4 t:[w={triggers}]sons, John, John, <>e2:[e=PER]John and John.
   pattern: |
     trigger = [lemma=/${ trigger }/]
     subject: SUBJ_Person = <nmod nsubjpass
-    object: OBJ_Person = conj
+    object: OBJ_Person = appos
+
+- name: per:children_3_2
+  label: per:children
+  priority: ${rulepriority}
+  sample: <>e1:[e=PER]Mary was survived by her 4 t:[w={triggers}]sons, John, John, <>e2:[e=PER]John and John.
+  pattern: |
+    trigger = [lemma=/${ trigger }/]
+    subject: SUBJ_Person = <nmod nsubjpass
+    object: OBJ_Person = appos conj
 

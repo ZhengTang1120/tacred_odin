@@ -5,23 +5,23 @@
   pattern: |
     trigger = [word=died]
     subject: SUBJ_Person = nsubj
-    object: ${object_type} = nmod
+    object: ${object_type} = nmod (?= case [word=in])
 
 - name: ${label}_1_extend
   label: ${label}
   priority: ${rulepriority}
-  sample: <>e1:[e=PER]John t:[w]died in <>e2:[e=LOC]London, <>country:[e=LOC]England in 1997.
+  sample: <>e1:[e=PER]John t:[w]died in London, <>e2:[e=LOC]England in 1997.
   pattern: |
     trigger = [word=died]
     subject: SUBJ_Person = nsubj
-    object: ${object_type} = nmod appos
+    object: ${object_type} = nmod (?= case [word=in]) appos
 
-- name: ${label}_3
+- name: ${label}_2
   label: ${label}
   priority: ${rulepriority}
-  sample: <>e2:[e=LOC]England pos:[t=POS]’s largest university is <>e1:[e=ORG]Oxford.
+  sample: <>e1:[e=PER]John $-LRB- t:[w]died in <>e2:[e=LOC]London $-RRB-.
   pattern: |
     trigger = [word=died]
-    subject: SUBJ_Person = nsubj [word=/-LRB-/] compound
-    object: ${object_type} = nmod [word=/-RRB-/] compound
+    subject: SUBJ_Person =  (?= punct [word=/-LRB-/]) <dep
+    object: ${object_type} =  (?= punct [word=/-RRB-/]) nmod (?= case [word=in])
 

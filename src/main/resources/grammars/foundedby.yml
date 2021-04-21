@@ -12,7 +12,7 @@
   priority: ${rulepriority}
   sample: <>e2:[e=PER]Mary t:[w]founded <>e1:[e=ORG]Microsoft.
   pattern: |
-    trigger = [word=/founded/]
+    trigger = [word=founded]
     subject: SUBJ_Organization = dobj
     object: OBJ_Person = nsubj
 
@@ -21,7 +21,7 @@
   priority: ${rulepriority}
   sample: <>e1:[e=ORG]Microsoft was t:[w]founded $by <>e2:[e=PER]Mary.
   pattern: |
-    trigger = [word=/founded/]
+    trigger = [word=founded]
     subject: SUBJ_Organization = nsubjpass
     object: OBJ_Person = nmod (?= case [word=by])
 
