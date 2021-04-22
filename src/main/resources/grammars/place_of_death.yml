@@ -19,7 +19,7 @@
 - name: ${label}_2
   label: ${label}
   priority: ${rulepriority}
-  sample: <>e1:[e=PER]John $-LRB- t:[w]died in <>e2:[e=LOC]London $-RRB-.
+  sample: <>e1:[e=PER]John $-LRB- t:[w]died $in <>e2:[e=LOC]London $-RRB-.
   pattern: |
     trigger = [word=died]
     subject: SUBJ_Person =  (?= punct [word=/-LRB-/]) <dep
