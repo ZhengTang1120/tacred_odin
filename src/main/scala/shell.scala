@@ -8,7 +8,7 @@ import utils._
 
 
 object shell extends App {
-  val input_file = io.Source.fromURL(getClass.getResource("/data/dev.json"))
+  val input_file = io.Source.fromURL(getClass.getResource(s"/data/${args(0)}.json"))
   val jsonString = input_file.mkString
   input_file.close()
   val list:List[Map[String, Any]] = JSON.parseFull(jsonString).get.asInstanceOf[List[Map[String, Any]]]
@@ -20,8 +20,9 @@ object shell extends App {
     val tokens = d.get("token").get.asInstanceOf[List[String]].toArray
     val ner = d.get("stanford_ner").get.asInstanceOf[List[String]].toArray
     val pos = d.get("stanford_pos").get.asInstanceOf[List[String]].toArray
-    val head = d.get("stanford_head").get.asInstanceOf[List[String]]
+    val head = d.get("stanford_head").get.asInstanceOf[List[Double]]
     val deprel = d.get("stanford_deprel").get.asInstanceOf[List[String]]
+    var label = d.get("relation").get.asInstanceOf[String]
     val start_offests = new Array[Int](tokens.length)
     val end_offests = new Array[Int](tokens.length)
     val edges = new ListBuffer[Edge[String]]
@@ -61,7 +62,7 @@ object shell extends App {
     sentences += sentence
   }
   val doc = new Document(sentences.toArray)
-
+  println("read in all sentences.")
   val source = io.Source.fromURL(getClass.getResource("/grammars/master.yml"))
   val rules = source.mkString
   source.close()

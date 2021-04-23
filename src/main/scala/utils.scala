@@ -18,11 +18,14 @@ package object utils {
       val sortedEntities = tbs ++ rels.sortBy(_.label)
 //      println("entities:")
 //      sortedEntities foreach displayMention
-
-      println
-      println("events:")
-      events foreach displayMention
-      println("=" * 50)
+      if (events.size!=0){
+//        println
+//        println("events:")
+        events foreach displayMention
+//        println("=" * 50)
+      }else{
+        println("no_relation\tNone")
+      }
     }
   }
 
@@ -34,23 +37,23 @@ package object utils {
 
   def displayMention(mention: Mention) {
     val boundary = s"\t${"-" * 30}"
-    println(s"${mention.labels} => ${mention.text}")
-    println(boundary)
-    println(s"\tRule => ${mention.foundBy}")
+//    println(s"${mention.labels} => ${mention.text}")
+//    println(boundary)
+//    println(s"\tRule => ${mention.foundBy}")
     val mentionType = mention.getClass.toString.split("""\.""").last
-    println(s"\tType => $mentionType")
-    println(boundary)
+//    println(s"\tType => $mentionType")
+//    println(boundary)
     mention match {
       case tb: TextBoundMention =>
         println(s"\t${tb.labels.mkString(", ")} => ${tb.text}")
       case em: EventMention =>
-        println(s"\ttrigger => ${em.trigger.text}")
-        displayArguments(em)
+        println(s"${mention.labels(0)}\t(${em.trigger.start},${em.trigger.end})\t${em.foundBy}")
+//        displayArguments(em)
       case rel: RelationMention =>
         displayArguments(rel)
       case _ => ()
     }
-    println(s"$boundary\n")
+//    println(s"$boundary\n")
   }
 
 
