@@ -8,7 +8,7 @@ import utils._
 
 
 object shell extends App {
-  val input_file = io.Source.fromURL(getClass.getResource(s"/data/${args(0)}.json"))
+  val input_file = io.Source.fromURL(getClass.getResource(s"/data/dev.json"))
   val jsonString = input_file.mkString
   input_file.close()
   val list:List[Map[String, Any]] = JSON.parseFull(jsonString).get.asInstanceOf[List[Map[String, Any]]]
@@ -63,7 +63,8 @@ object shell extends App {
   }
   val doc = new Document(sentences.toArray)
   println("read in all sentences.")
-  val source = io.Source.fromURL(getClass.getResource("/grammars/master.yml"))
+  println(sentences.size)
+  val source = io.Source.fromURL(getClass.getResource("/grammars6/master.yml"))
   val rules = source.mkString
   source.close()
   val extractor = ExtractorEngine(rules)
