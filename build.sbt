@@ -15,3 +15,5 @@ libraryDependencies ++= {
     "org.clulab" %% "processors-odin" % procVer
   )
 }
+
+libraryDependencies += "ai.lum" %% "regextools" % "0.1.0-SNAPSHOT"
