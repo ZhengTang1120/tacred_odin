@@ -8,7 +8,7 @@ import utils._
 
 
 object shell extends App {
-  val input_file = io.Source.fromURL(getClass.getResource(s"/data/unit_tests.json"))
+  val input_file = io.Source.fromURL(getClass.getResource(s"/data/dev.json"))
   val jsonString = input_file.mkString
   input_file.close()
   val list:List[Map[String, Any]] = JSON.parseFull(jsonString).get.asInstanceOf[List[Map[String, Any]]]
