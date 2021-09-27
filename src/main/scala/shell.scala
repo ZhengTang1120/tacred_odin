@@ -8,7 +8,7 @@ import utils._
 
 
 object shell extends App {
-  val input_file = io.Source.fromURL(getClass.getResource(s"/data/dev.json"))
+  val input_file = io.Source.fromURL(getClass.getResource(s"/data/unit_tests.json"))
   val jsonString = input_file.mkString
   input_file.close()
   val list:List[Map[String, Any]] = JSON.parseFull(jsonString).get.asInstanceOf[List[Map[String, Any]]]
@@ -61,18 +61,18 @@ object shell extends App {
     sentence.setDependencies(depType = GraphMap.UNIVERSAL_ENHANCED, deps = dg)
     sentences += sentence
   }
-  println("read in all sentences.")
-  println(sentences.size)
-  val groups = sentences.grouped(2200).toList.par
-  for ((group, i) <- groups.zipWithIndex) {
-    val doc = new Document(group.toArray)
-    println(s"# of sentences in group $i.")
-    println(doc.sentences.size)
-    val source = io.Source.fromURL(getClass.getResource("/grammars6/master.yml"))
-    val rules = source.mkString
-    source.close()
-    val extractor = ExtractorEngine(rules)
-    val mentions = extractor.extractFrom(doc).sortBy(m => (m.sentence, m.getClass.getSimpleName))
-    displayMentions(mentions, doc, i)
-  }
+
+  println(s"read in all ${sentences.size} sentences")
+
+  val t1 = System.nanoTime
+  val doc = new Document(sentences.toArray)
+  val source = io.Source.fromURL(getClass.getResource(s"/${args(0)}/master.yml"))
+  val rules = source.mkString
+  source.close()
+  val extractor = ExtractorEngine(rules)
+  val mentions = extractor.extractFrom(doc).sortBy(m => (m.sentence, m.getClass.getSimpleName))
+  displayMentions(mentions, doc, args(0))
+  val duration = (System.nanoTime - t1) / 1e9d
+  println(s"""finish relation extraction "${args(0)}" in $duration seconds""")
+
 }
