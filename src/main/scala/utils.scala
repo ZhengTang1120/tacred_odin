@@ -5,9 +5,9 @@ import java.io._
 
 package object utils {
 
-  def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
+  def displayMentions(mentions: Seq[Mention], doc: Document, id:Int): Unit = {
     val mentionsBySentence = mentions groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
-    val pw = new PrintWriter(new File("dev_generated_rule.txt" ))
+    val pw = new PrintWriter(new File(s"dev_generated_rule_$id.txt" ))
     for ((s, i) <- doc.sentences.zipWithIndex) {
 //      println(s"sentence #$i")
 //      println(s.getSentenceText)

@@ -61,13 +61,16 @@ object shell extends App {
     sentence.setDependencies(depType = GraphMap.UNIVERSAL_ENHANCED, deps = dg)
     sentences += sentence
   }
-  val doc = new Document(sentences.toArray)
-  println("read in all sentences.")
-  println(sentences.size)
-  val source = io.Source.fromURL(getClass.getResource("/grammars6/master.yml"))
-  val rules = source.mkString
-  source.close()
-  val extractor = ExtractorEngine(rules)
-  val mentions = extractor.extractFrom(doc).sortBy(m => (m.sentence, m.getClass.getSimpleName))
-  displayMentions(mentions, doc)
+  val groups = sentences.grouped(2200).toList.par
+  for ((group, i) <- groups.zipWithIndex) {
+    val doc = new Document(group.toArray)
+    println("read in all sentences.")
+    println(sentences.size)
+    val source = io.Source.fromURL(getClass.getResource("/grammars6/master.yml"))
+    val rules = source.mkString
+    source.close()
+    val extractor = ExtractorEngine(rules)
+    val mentions = extractor.extractFrom(doc).sortBy(m => (m.sentence, m.getClass.getSimpleName))
+    displayMentions(mentions, doc, i)
+  }
 }
