@@ -16,4 +16,4 @@ libraryDependencies ++= {
   )
 }
 
-libraryDependencies += "ai.lum" %% "regextools" % "0.1.0-SNAPSHOT"
+//libraryDependencies += "ai.lum" %% "regextools" % "0.1.0-SNAPSHOT"
