@@ -61,11 +61,13 @@ object shell extends App {
     sentence.setDependencies(depType = GraphMap.UNIVERSAL_ENHANCED, deps = dg)
     sentences += sentence
   }
+  println("read in all sentences.")
+  println(sentences.size)
   val groups = sentences.grouped(2200).toList.par
   for ((group, i) <- groups.zipWithIndex) {
     val doc = new Document(group.toArray)
-    println("read in all sentences.")
-    println(sentences.size)
+    println(s"# of sentences in group $i.")
+    println(doc.sentences.size)
     val source = io.Source.fromURL(getClass.getResource("/grammars6/master.yml"))
     val rules = source.mkString
     source.close()
